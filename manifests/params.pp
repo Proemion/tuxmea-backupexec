@@ -3,12 +3,12 @@
 # set distribution specific variables
 #
 class backupexec::params {
-    case $::osfamily {
-        'RedHat': {
-            $pkgname = 'VRTSralus'
-        }
-        default: {
-            fail ("Your OS : ${::operatingsystem} is not supported.")
-        }
+  case $::osfamily {
+    'RedHat': {
+      $pkgname = 'VRTSralus'
     }
+    default: {
+      fail ("Your OS : ${::operatingsystem} is not supported.")
+    }
+  }
 }
