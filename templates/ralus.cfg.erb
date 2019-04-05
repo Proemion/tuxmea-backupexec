@@ -9,8 +9,8 @@ Software\Symantec\Backup Exec For Windows\Backup Exec\Engine\Agents\Advertise No
 Software\Symantec\Backup Exec For Windows\Backup Exec\Engine\Agents\Advertisement Purge=0
 Software\Symantec\Backup Exec For Windows\Backup Exec\Engine\Agents\Advertising Disabled=0
 Software\Symantec\Backup Exec For Windows\Backup Exec\Engine\Agents\Advertising Interval Minutes=240
-Software\Symantec\Backup Exec For Windows\Backup Exec\Engine\Agents\Agent Directory List_1=<%= scope.lookupvar("::hostname") %>.bak.epost-dev.de
-Software\Symantec\Backup Exec For Windows\Backup Exec\Engine\Agents\Agent Directory List_2=EPD-BE2012
+Software\Symantec\Backup Exec For Windows\Backup Exec\Engine\Agents\Agent Directory List_1=fulitvm016.ad1.proemion.com #make this variable
+Software\Symantec\Backup Exec For Windows\Backup Exec\Engine\Agents\Agent Directory List_2=FULITVM016 #make this variable
 Software\Symantec\Backup Exec For Windows\Backup Exec\Engine\Agents\Auto Discovery Enabled=1
 Software\Symantec\Backup Exec For Windows\Backup Exec\Engine\Logging\RANT NDMP Debug Level=0
 Software\Symantec\Backup Exec For Windows\Backup Exec\Engine\RALUS\DisableOFO=0
@@ -20,6 +20,6 @@ Software\Symantec\Backup Exec For Windows\Backup Exec\Engine\RALUS\VfmPath=/opt/
 Software\Symantec\Backup Exec For Windows\Backup Exec\Engine\RMAL\DisableRMAL=0
 Software\Symantec\Backup Exec For Windows\Backup Exec\Network\TcpIp\DnsQueryTimeOut=5000
 # Excludes
-Software\Symantec\Backup Exec For Windows\Backup Exec\Engine\RALUS\SystemExclude1=/dev/*.*
-Software\Symantec\Backup Exec For Windows\Backup Exec\Engine\RALUS\SystemExclude2=/proc/*.*
-Software\Symantec\Backup Exec For Windows\Backup Exec\Engine\RALUS\SystemExclude3=/sys/*.*
+Software\Symantec\Backup Exec For Windows\Backup Exec\Engine\RALUS\SystemExclude1=/mnt/nss/pools/
+Software\Symantec\Backup Exec For Windows\Backup Exec\Engine\RALUS\SystemExclude2=/mnt/nss/.pools/
+Software\Symantec\Backup Exec For Windows\Backup Exec\Engine\RALUS\SystemExclude3=/_admin/*.*
