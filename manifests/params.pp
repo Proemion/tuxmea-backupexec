@@ -7,6 +7,12 @@ class backupexec::params {
     'RedHat': {
       $pkgname = 'VRTSralus'
     }
+	'Ubuntu': {
+      $pkgname = 'vrtsralus'
+    }
+	'Debian': {
+      $pkgname = 'vrtsralus'
+    }
     default: {
       fail ("Your OS : ${::operatingsystem} is not supported.")
     }
