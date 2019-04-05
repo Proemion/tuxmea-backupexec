@@ -2,9 +2,8 @@
 #
 # This class installs and configures a Symantec BackupExec agent on Linux
 #
-class backupexec (
-    $pkgname = $backupexec::params::pkgname,
-) inherits backupexec::params {
+class backupexec {
+
   group { 'beoper':
     ensure => present,
   }
@@ -15,9 +14,9 @@ class backupexec (
     require => Group['beoper']
   }
 
-  package { $pkgname:
-    ensure  => present,
-    require => User['beuser'],
+  package { 'vrtsralus':
+    ensure  => latest,
+    require => [ User['beuser'], Apt::Source['rm-apt-repo'] ],
   }
 
   file { '/etc/VRTSralus/ralus.cfg':
@@ -26,7 +25,7 @@ class backupexec (
     group   => 'beoper',
     mode    => '0644',
     content => template('backupexec/ralus.cfg.erb'),
-    require => Package[$backupexec::params::pkgname],
+    require => Package['vrtsralus'],
   }
 
   file { '/etc/init.d/VRTSralus.init':
@@ -41,7 +40,7 @@ class backupexec (
     hasstatus  => false,
     hasrestart => true,
     pattern    => '/opt/VRTSralus/bin/beremote',
-    require    => Package[$backupexec::params::pkgname],
+    require    => Package['vrtsralus'],
   }
 
   file { '/opt/VRTSralus/data':
@@ -49,6 +48,6 @@ class backupexec (
     owner   => 'beuser',
     group   => 'beoper',
     mode    => '0770',
-    require => Package[$backupexec::params::pkgname],
+    require => Package['vrtsralus'],
   }
 }
