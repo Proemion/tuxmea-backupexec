@@ -29,7 +29,7 @@ class backupexec (
     ensure => present,
     path   => '/etc/VRTSralus/ralus.cfg',
     line   => "Software\\Symantec\\Backup Exec For Windows\\Backup Exec\\Engine\\Agents\\Agent Directory List_1=$be_server",
-    match  => '^Software\\Symantec\\Backup Exec For Windows\\Backup Exec\\Engine\\Agents\\Agent Directory List_1=',
+    match  => '^Software\\Symantec\\Backup Exec For Windows\\Backup Exec\\Engine\\Agents\\Agent Directory List_1=.*',
     require => Package[$pkgname],
   }
   file_line { 'backupexec_adverticement_port':
