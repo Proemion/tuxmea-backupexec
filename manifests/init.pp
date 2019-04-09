@@ -13,7 +13,7 @@ class backupexec (
   }
   user { 'beuser':
     ensure   => present,
-    uid      => '305',
+    system   => true,
     gid      => '0',
     groups   => 'beoper',
     password => $be_userpw,
