@@ -41,6 +41,13 @@ class backupexec (
   }
 
 
+  file { '/opt/VRTSralus/bin/VRTSralus.init':
+    ensure  => 'file',
+    target  => '/opt/VRTSralus/bin/VRTSralus.init',
+    mode    => '0755',
+    require => Package[$pkgname],
+  }
+
   file { '/etc/init.d/VRTSralus.init':
     ensure  => 'link',
     target  => '/opt/VRTSralus/bin/VRTSralus.init',
