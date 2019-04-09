@@ -25,15 +25,21 @@ class backupexec (
     require => User['beuser'],
   }
 
-  file { '/etc/VRTSralus/ralus.cfg':
-    ensure  => file,
-    owner   => 'beuser',
-    group   => 'beoper',
-    mode    => '0644',
-    replace => false,
-    content => template('backupexec/ralus.cfg.erb'),
+  file_line { 'backupexec_agent_directory':
+    ensure => present,
+    path   => '/etc/VRTSralus/ralus.cfg',
+    line   => "Software\\Symantec\\Backup Exec For Windows\\Backup Exec\\Engine\\Agents\\Agent Directory List_1=$be_server",
+    match  => '^Software\\Symantec\\Backup Exec For Windows\\Backup Exec\\Engine\\Agents\\Agent Directory List_1=',
     require => Package[$pkgname],
   }
+  file_line { 'backupexec_agent_directory':
+    ensure => present,
+    path   => '/etc/VRTSralus/ralus.cfg',
+    line   => "Software\\Symantec\\Backup Exec For Windows\\Agent Browser\\TcpIp\\AdvertisementPort=6101",
+    match  => '^Software\\Symantec\\Backup Exec For Windows\\Agent Browser\\TcpIp\\AdvertisementPort=',
+    require => Package[$pkgname],
+  }
+
 
   file { '/etc/init.d/VRTSralus.init':
     ensure  => 'link',
