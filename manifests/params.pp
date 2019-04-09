@@ -7,10 +7,10 @@ class backupexec::params {
     'RedHat': {
       $pkgname = 'VRTSralus'
     }
-	'Ubuntu': {
+	  'Ubuntu': {
       $pkgname = 'vrtsralus'
     }
-	'Debian': {
+	  'Debian': {
       $pkgname = 'vrtsralus'
     }
     default: {
